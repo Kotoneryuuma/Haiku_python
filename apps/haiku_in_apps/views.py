@@ -25,7 +25,8 @@ def regi(request):
             print(request.POST)
         ############send info to DB##########################
             hash1 = bcrypt.hashpw(p_w.encode(), bcrypt.gensalt())
-            new = User.objects.create(first_name=f_name, last_name=l_name, email=e_ma, password=hash1)
+            hashpw = str(hash1, 'utf-8')
+            new = User.objects.create(first_name=f_name, last_name=l_name, email=e_ma, password=hashpw)
             print(new)
             # ##### get last info from DB #############
             # send = User.objects.last()
@@ -58,7 +59,12 @@ def login(request):
                     return redirect("/dashboard")
                 else:
                     print("failed password")
+                    messages.error(request, 'Incorrect Login Info') 
                     return redirect("/")
+
+
+
+
 
 def dashbord(request):
     # us = User.objects.get(id=1)

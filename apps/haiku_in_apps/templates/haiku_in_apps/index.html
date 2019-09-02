@@ -7,11 +7,15 @@
     <title>Document</title>
     <style>
         .box{
-            width: 300px;
-            height: 400px;
+            width: 790px;
             display: inline-block;
             vertical-align: top;
+            margin: auto;
+            text-align: center;
         }  
+        h1{
+            text-align: center;
+        }
         
     </style>
 </head>
@@ -33,7 +37,7 @@
             <p>Last Name <input name="ln" type="text"></p>
             <p>Email <input name="em" type="text"></p>
             <p>Password <input name="pa" type="password"></p>
-            <p>Confirm pw <input name="cp" type="text"></p>
+            <p>Confirm pw <input name="cp" type="password"></p>
             <button type="submit">Register</button>
         </form>
     </div>
@@ -50,7 +54,7 @@
             <form action="/process/login" method="post">
                 {% csrf_token %}
                 <p>Email: <input name="mail_e" type="text"></p>
-                <p>Password: <input name="pass_word" type="text"></p>
+                <p>Password: <input name="pass_word" type="password"></p>
                 <button type="submit">log In</button>
             </form>
         </div>

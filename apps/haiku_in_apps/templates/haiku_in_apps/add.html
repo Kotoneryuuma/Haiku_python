@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Hello {{ request.session.f_name }}! Create a job!</h3>
+    <a href="/destroy">Logout</a>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/jobs/process" method="post">
+        {% csrf_token %}
+        <p>Title: <input name="s_tit" type="text"></p>
+        <p>Destination:  <input name="s_des" type="text"></p>
+        <p>Location:  <input name="s_loc" type="textarea"></p>
+        <input type="hidden" value="{{ request.session.id }}">
+        <button type="submit">Submit</button>
+    </form>
+    
+    
+</body>
+</html>

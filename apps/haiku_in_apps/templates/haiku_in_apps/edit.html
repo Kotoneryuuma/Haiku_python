@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Hello {{ request.session.f_name  }}! Let's edit your trip!</h3>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/destroy">Logout</a>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/edit/{{ jobs.id }}/process" method="post">
+        {% csrf_token %}
+        <p>Title:  <input name="s_tit" type="text"></p>
+        <p>Description:  <input name="s_des" type="text"></p>
+        <p>Location:<input name="s_loc" type="text"></p>
+        <input type="hidden" name="whatever" value="{{jobs.id}}">
+        <button type="submit">Update</button>
+    </form>
+    
+</body>
+</html>

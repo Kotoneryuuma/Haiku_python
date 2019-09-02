@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Hello  {{ request.session.f_name }}  !</h3>
+    <a href="/destroy">Logout</a>
+    <a href="jobs/new">new job!</a>
+
+
+
+    <h1>Everyone's jobs:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dog in jobs %}
+        <tr>
+            <td>{{ dog.name }}</a></td> 
+            <td>{{ dog.location }}</td> 
+            <td>  <a href="/jobs/{{ dog.id }}">View</a></td>
+
+        </tr>
+        {% endfor %}
+        {% for box in dogs %}
+        <tr>
+            <td>{{ box.name }}</a></td> 
+            <td>{{ box.location }}</td> 
+            <td> <a href="/jobs/{{ box.id }}/delete">Delete</a> | <a href="/jobs/edit{{ box.id }}">Edit</a> | <a href="/jobs/{{ box.id }}">View</a></td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

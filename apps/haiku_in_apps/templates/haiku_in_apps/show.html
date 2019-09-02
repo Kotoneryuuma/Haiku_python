@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hello {{ request.session.f_name  }} ! Read about this trip!</h2>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/destroy">Logout</a>
+
+    
+    <h2> {{jobs.name}}</h2>
+
+    <h3> {{ jobs.description}}</h1>
+    <h3>Location: {{ jobs.location}}</h3>
+    <h3>Created by: {{ jobs.created_by.first_name }}</h3>
+    <h3>Posted On: {{ jobs.created_at}}</h3> 
+    <!-- <a href="/shows/{{ shows.id }}/edit">Edit</a> | 
+    <a href="/shows/{{ shows.id }}/delete">Delete</a> -->
+    
+    
+</body>
+</html>
